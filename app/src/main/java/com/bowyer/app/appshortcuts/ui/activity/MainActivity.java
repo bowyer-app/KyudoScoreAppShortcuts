@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    //createShortCut();
     ButterKnife.bind(this);
 
     View headerLayout = navigationView.getHeaderView(0);
