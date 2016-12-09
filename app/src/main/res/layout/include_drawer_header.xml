@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="304dp"
+    android:layout_height="152dp"
+    android:clickable="false"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    >
+
+  <ImageView
+      android:id="@+id/coverImage"
+      android:layout_width="304dp"
+      android:layout_height="152dp"
+      android:scaleType="centerCrop"
+      />
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="32dp"
+      android:layout_above="@+id/yesterday_title"
+      android:text="@string/yesterday_title"
+      style="@style/drawer_header_title"
+      />
+
+  <RelativeLayout
+      android:id="@+id/yesterday_title"
+      android:layout_width="match_parent"
+      android:layout_height="28dp"
+      android:layout_above="@+id/today_title"
+      >
+
+    <TextView
+        android:id="@+id/yesterday_data"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="100射50中　50%"
+        style="@style/drawer_header"
+        />
+  </RelativeLayout>
+
+  <TextView
+      android:id="@+id/today_title"
+      android:layout_width="wrap_content"
+      android:layout_height="28dp"
+      android:layout_above="@+id/today"
+      android:text="@string/today_title"
+      style="@style/drawer_header_title"
+      />
+
+  <RelativeLayout
+      android:id="@+id/today"
+      android:layout_width="match_parent"
+      android:layout_height="32dp"
+      android:layout_alignParentBottom="true"
+      android:layout_marginBottom="8dp"
+      >
+
+    <TextView
+        android:id="@+id/today_data"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="100射50中　50%"
+        style="@style/drawer_header"
+        />
+
+    <ImageView
+        android:id="@+id/trend_icon_today"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/today_data"
+        android:src="@drawable/ic_nav_trend"
+        />
+  </RelativeLayout>
+</RelativeLayout>

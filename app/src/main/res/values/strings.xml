@@ -1,0 +1,34 @@
+<resources>
+  <string name="app_name">KyudoScoreAppShortcuts</string>
+
+  <!-- Drawer -->
+  <string name="drawer_input">Input Record</string>
+  <string name="drawer_record">Record</string>
+  <string name="drawer_memo_list">Memos</string>
+  <string name="drawer_chart">Graph</string>
+  <string name="drawer_notification">Notification</string>
+  <string name="drawer_fortune">Fortune</string>
+  <string name="drawer_share">Tell a friend</string>
+  <string name="drawer_review">Write Review</string>
+  <string name="drawer_other">Other</string>
+  <string name="drawer_about">Setting</string>
+  <string name="yesterday_title">Yesterday</string>
+  <string name="today_title">Today</string>
+
+  <!-- Menu -->
+  <string name="action_share">Share</string>
+  <string name="action_calender">Calender</string>
+  <string name="action_save">Save</string>
+
+  <!-- AppShortcuts -->
+  <string name="shortcut_record">@string/drawer_record</string>
+  <string name="shortcut_memo_list">@string/drawer_memo_list</string>
+  <string name="shortcut_graph">@string/drawer_chart</string>
+  <string name="shortcut_fortune">@string/drawer_fortune</string>
+
+  <!-- Message -->
+  <string name="message_share">Call Share</string>
+  <string name="message_calendar">Call Calender</string>
+  <string name="message_review">Call Review</string>
+  <string name="message_setting">Call Setting</string>
+</resources>

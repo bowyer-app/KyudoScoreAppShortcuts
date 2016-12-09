@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <group android:checkableBehavior="single">
+    <item
+        android:id="@+id/nav_input"
+        android:icon="@drawable/icon_input"
+        android:title="@string/drawer_input"/>
+    <item
+        android:id="@+id/nav_record"
+        android:icon="@drawable/ic_nav_record"
+        android:title="@string/drawer_record"/>
+    <item
+        android:id="@+id/nav_memo"
+        android:icon="@drawable/ic_nav_memo"
+        android:title="@string/drawer_memo_list"/>
+    <item
+        android:id="@+id/nav_chart"
+        android:icon="@drawable/ic_nav_trend"
+        android:title="@string/drawer_chart"/>
+    <item
+        android:id="@+id/nav_notification"
+        android:icon="@drawable/ic_nav_notification"
+        android:title="@string/drawer_notification"/>
+    <item
+        android:id="@+id/nav_fortune"
+        android:icon="@drawable/ic_nav_fortune"
+        android:title="@string/drawer_fortune"/>
+  </group>
+  <item android:title="@string/drawer_other">
+    <menu>
+      <item
+          android:id="@+id/nav_setting"
+          android:icon="@drawable/ic_nav_setting"
+          android:title="@string/drawer_about"/>
+      <item
+          android:id="@+id/nav_review"
+          android:icon="@drawable/ic_nav_review"
+          android:title="@string/drawer_review"/>
+      <item
+          android:id="@+id/nav_tell_friend"
+          android:icon="@drawable/ic_nav_share"
+          android:title="@string/drawer_share"/>
+    </menu>
+  </item>
+</menu>

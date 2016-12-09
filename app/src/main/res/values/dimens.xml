@@ -1,0 +1,3 @@
+<resources>
+  <integer name="activity_transition_mills">200</integer>
+</resources>
