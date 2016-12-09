@@ -32,6 +32,15 @@ public enum Page {
     return forMenuId(id);
   }
 
+  public static Page forMenuId(String pageName) {
+    for (Page page : values()) {
+      if (page.pageName.equals(pageName)) {
+        return page;
+      }
+    }
+    throw new AssertionError("no menu enum found for the id. you forgot to implement?");
+  }
+
   public static Page forMenuId(int id) {
     for (Page page : values()) {
       if (page.menuId == id) {

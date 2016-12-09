@@ -1,0 +1,68 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+  <shortcut
+      android:enabled="true"
+      android:icon="@drawable/ic_short_record"
+      android:shortcutId="shortcut_record"
+      android:shortcutLongLabel="@string/shortcut_record"
+      android:shortcutShortLabel="@string/shortcut_record">
+    <intent
+        android:action="android.intent.action.VIEW"
+        android:targetClass="com.bowyer.app.appshortcuts.ui.activity.MainActivity"
+        android:targetPackage="com.bowyer.app.appshortcuts">
+      <extra
+          android:name="shortcut_id"
+          android:value="RecordTabFragment"/>
+    </intent>
+    <categories android:name="android.shortcut.conversation"/>
+
+  </shortcut>
+  <shortcut
+      android:enabled="true"
+      android:icon="@drawable/ic_short_memo"
+      android:shortcutId="shortcut_memos"
+      android:shortcutLongLabel="@string/shortcut_memo_list"
+      android:shortcutShortLabel="@string/shortcut_memo_list">
+    <intent
+        android:action="android.intent.action.VIEW"
+        android:targetClass="com.bowyer.app.appshortcuts.ui.activity.MainActivity"
+        android:targetPackage="com.bowyer.app.appshortcuts">
+      <extra
+          android:name="shortcut_id"
+          android:value="MemoListFragment"/>
+    </intent>
+
+    <categories android:name="android.shortcut.conversation"/>
+  </shortcut>
+  <shortcut
+      android:enabled="true"
+      android:icon="@drawable/ic_short_chart"
+      android:shortcutId="shortcut_chart"
+      android:shortcutLongLabel="@string/shortcut_graph"
+      android:shortcutShortLabel="@string/shortcut_graph">
+    <intent
+        android:action="android.intent.action.VIEW"
+        android:targetClass="com.bowyer.app.appshortcuts.ui.activity.MainActivity"
+        android:targetPackage="com.bowyer.app.appshortcuts">
+      <extra
+          android:name="shortcut_id"
+          android:value="ChartFragment"/>
+    </intent>
+    <categories android:name="android.shortcut.conversation"/>
+  </shortcut>
+  <shortcut
+      android:enabled="true"
+      android:icon="@drawable/ic_short_fortune"
+      android:shortcutId="shortcut_fortune"
+      android:shortcutLongLabel="@string/shortcut_fortune"
+      android:shortcutShortLabel="@string/shortcut_fortune">
+    <intent
+        android:action="android.intent.action.MAIN"
+        android:targetClass="com.bowyer.app.appshortcuts.ui.activity.MainActivity"
+        android:targetPackage="com.bowyer.app.appshortcuts">
+      <extra
+          android:name="shortcut_id"
+          android:value="FortuneFragment"/>
+    </intent>
+    <categories android:name="android.shortcut.conversation"/>
+  </shortcut>
+</shortcuts>

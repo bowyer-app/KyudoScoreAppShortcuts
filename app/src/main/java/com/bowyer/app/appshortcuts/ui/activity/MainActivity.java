@@ -1,13 +1,8 @@
 package com.bowyer.app.appshortcuts.ui.activity;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ShortcutInfo;
-import android.content.pm.ShortcutManager;
 import android.content.res.Configuration;
-import android.graphics.drawable.Icon;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
@@ -36,8 +31,6 @@ import com.bowyer.app.appshortcuts.ui.fragment.NotificationFragment;
 import com.bowyer.app.appshortcuts.ui.fragment.RecordTabFragment;
 import com.bowyer.app.appshortcuts.ui.model.Page;
 import com.squareup.picasso.Picasso;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity
     implements FragmentManager.OnBackStackChangedListener {
@@ -61,7 +54,7 @@ public class MainActivity extends AppCompatActivity
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    createShortCut();
+    //createShortCut();
     ButterKnife.bind(this);
 
     View headerLayout = navigationView.getHeaderView(0);
@@ -212,80 +205,14 @@ public class MainActivity extends AppCompatActivity
     ft.commit();
   }
 
-  private Intent createIntent() {
-    Intent intent = new Intent(Intent.ACTION_MAIN, Uri.EMPTY, this, MainActivity.class);
-    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-    return intent;
-  }
-
-  @TargetApi(25) private void createShortCut() {
-    if ((Build.VERSION.SDK_INT <= Build.VERSION_CODES.N)) {
-      return;
-    }
-
-    ShortcutManager shortcutManager = getSystemService(ShortcutManager.class);
-    List<ShortcutInfo> shortcutInfos = new ArrayList<>();
-
-    Intent recordIntent = createIntent();
-    String recordTitle = getString(R.string.shortcut_record);
-    recordIntent.putExtra(KEY_SHORTCUT_ID, R.id.nav_record);
-
-    ShortcutInfo record = new ShortcutInfo.Builder(this, recordTitle).setShortLabel(recordTitle)
-        .setLongLabel(recordTitle)
-        .setIcon(Icon.createWithResource(this, R.drawable.ic_short_record))
-        .setIntent(recordIntent)
-        .setRank(1)
-        .build();
-
-    shortcutInfos.add(record);
-
-    Intent memoIntent = createIntent();
-    String memoTitle = getString(R.string.shortcut_memo_list);
-    memoIntent.putExtra(KEY_SHORTCUT_ID, R.id.nav_memo);
-    ShortcutInfo memo = new ShortcutInfo.Builder(this, memoTitle).setShortLabel(memoTitle)
-        .setLongLabel(memoTitle)
-        .setIcon(Icon.createWithResource(this, R.drawable.ic_short_memo))
-        .setIntent(memoIntent)
-        .setRank(2)
-        .build();
-
-    shortcutInfos.add(memo);
-
-    Intent graphIntent = createIntent();
-    String graphTitle = getString(R.string.shortcut_graph);
-    graphIntent.putExtra(KEY_SHORTCUT_ID, R.id.nav_chart);
-    ShortcutInfo graph = new ShortcutInfo.Builder(this, graphTitle).setShortLabel(graphTitle)
-        .setLongLabel(graphTitle)
-        .setIcon(Icon.createWithResource(this, R.drawable.ic_short_chart))
-        .setIntent(graphIntent)
-        .setRank(3)
-        .build();
-
-    shortcutInfos.add(graph);
-
-    Intent fortuneIntent = createIntent();
-    String fortuneTitle = getString(R.string.shortcut_fortune);
-    fortuneIntent.putExtra(KEY_SHORTCUT_ID, R.id.nav_fortune);
-    ShortcutInfo fortune = new ShortcutInfo.Builder(this, fortuneTitle).setShortLabel(fortuneTitle)
-        .setLongLabel(fortuneTitle)
-        .setIcon(Icon.createWithResource(this, R.drawable.ic_short_fortune))
-        .setIntent(fortuneIntent)
-        .setRank(4)
-        .build();
-
-    shortcutInfos.add(fortune);
-
-    shortcutManager.setDynamicShortcuts(shortcutInfos);
-  }
-
   private void handleShortcutsAction() {
-
-    if ((Build.VERSION.SDK_INT <= Build.VERSION_CODES.N)) {
+    boolean hasExtra = getIntent().hasExtra(KEY_SHORTCUT_ID);
+    if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.N || !hasExtra) {
       return;
     }
-
-    int shortcutId = getIntent().getIntExtra(KEY_SHORTCUT_ID, 0);
-    switch (shortcutId) {
+    String shortcutId = getIntent().getStringExtra(KEY_SHORTCUT_ID);
+    Page page = Page.forMenuId(shortcutId);
+    switch (page.getMenuId()) {
       case R.id.nav_record:
         pageChange(RecordTabFragment.newInstance());
         break;
@@ -302,6 +229,6 @@ public class MainActivity extends AppCompatActivity
         pageChange(FortuneFragment.newInstance());
         break;
     }
-    navigationView.setCheckedItem(shortcutId);
+    navigationView.setCheckedItem(page.getMenuId());
   }
 }
